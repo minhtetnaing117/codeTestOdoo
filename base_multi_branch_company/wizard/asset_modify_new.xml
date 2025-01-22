@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record model="ir.ui.view" id="asset_modify_new_form">
+        <field name="name">wizard.asset.modify,new.form</field>
+        <field name="model">asset.modify.new</field>
+        <field name="arch" type="xml">
+            <form string="Auto Asset Create">
+                <group string="Asset Durations to Create" col="4">
+                    <label for="account_asset_id"/>
+                    <div>
+                        <field name="account_asset_id" class="oe_inline"/>
+                    </div>
+                    <group string="From" colspan="2" col="2">
+                	    
+                        <field name="category_id" />
+                        <field name="branch_id" />
+                        <field name="analytic_id" />
+                        <field name="method_number" />
+                        <field name="value_residuala" />
+                        <label for="method_period"/>
+                        <div>
+                            <field name="method_period" class="oe_inline"/> months
+                        </div>
+                    </group>
+                    <group string="To" colspan="2" col="2">
+                        <field name="category_ids" />
+                        <field name="branch_ids" />
+                        <field name="analytic_ids" />
+                        <field name="method_numbers" />
+                        <field name="value_residuals" />
+                        <label for="method_periods"/>
+                        <div>
+                            <field name="method_periods" class="oe_inline"/> months
+                        </div>	                        
+                    </group>
+                </group>
+                <footer>
+                    <button name="modify" string="Modify" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    
+    <record id="action_asset_modify_new" model="ir.actions.act_window">
+         <field name="name">Auto Asset Create</field>
+         <field name="res_model">asset.modify.new</field>
+         <field name="type">ir.actions.act_window</field>
+         <field name="view_type">form</field>
+         <field name="view_mode">tree,form</field>
+         <field name="view_id" ref="asset_modify_new_form"/>
+         <field name="target">new</field>
+   </record>
+
+    <menuitem parent="account.menu_finance_entries_management" id="menu_action_asset_modify_new" action="action_asset_modify_new" sequence="17"/>
+
+    
+</odoo>

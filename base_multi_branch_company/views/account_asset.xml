@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_account_form" model="ir.ui.view">
+        <field name="model">account.asset.asset</field>
+        <field name="inherit_id" ref="account_asset.view_account_asset_asset_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date']" position="after"> 
+                <field name="branch_id" />
+                <field name="analytic_id"/>   
+            </xpath>
+
+        </field>
+    </record>
+
+     <record id="action_account_asset_asset_form" model="ir.actions.server">
+            <field name="name">Test Asset</field>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="model_id" ref="account_asset.model_account_asset_asset"/>
+            <field name="binding_model_id" ref="account_asset.model_account_asset_asset"/>
+            <field name="code">
+records.set_to_new()
+            </field>
+        </record>
+
+
+    <record id="view_account_analytic_account_form_inherit" model="ir.ui.view">
+        <field name="model">account.analytic.account</field>
+        <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="after"> 
+                <field name="branch_id" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_account_asset_category_form_inherit" model="ir.ui.view">
+        <field name="model">account.asset.category</field>
+        <field name="inherit_id" ref="account_asset.view_account_asset_category_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='account_analytic_id']" position="after"> 
+                <field name="branch_id" domain="[('company_id', '=', company_id)]" groups="analytic.group_analytic_accounting"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
