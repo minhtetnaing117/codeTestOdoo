@@ -17,7 +17,6 @@
                         <field name="branch_id" />
                         <field name="analytic_id" />
                         <field name="method_number" />
-                        <field name="value_residuala" />
                         <label for="method_period"/>
                         <div>
                             <field name="method_period" class="oe_inline"/> months
@@ -28,7 +27,6 @@
                         <field name="branch_ids" />
                         <field name="analytic_ids" />
                         <field name="method_numbers" />
-                        <field name="value_residuals" />
                         <label for="method_periods"/>
                         <div>
                             <field name="method_periods" class="oe_inline"/> months
