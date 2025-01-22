@@ -42,9 +42,3 @@ class AccountAssetCategory(models.Model):
     def _compute_branch(self):
         for record in self:
             record.branch_id = record.account_analytic_id.branch_id
-            # for branch in record.company_id.branch_ids:
-            #     if branch.analytic_id.id == record.id:
-            #         print("_compute_branch>>>", branch.analytic_id.id)
-            #         # Assign branch id to the field
-            #         record.branch_id = branch.id
-            #         break  # This selects the first branch

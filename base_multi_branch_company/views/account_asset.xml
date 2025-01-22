@@ -12,17 +12,6 @@
         </field>
     </record>
 
-     <record id="action_account_asset_asset_form" model="ir.actions.server">
-            <field name="name">Test Asset</field>
-            <field name="type">ir.actions.server</field>
-            <field name="state">code</field>
-            <field name="model_id" ref="account_asset.model_account_asset_asset"/>
-            <field name="binding_model_id" ref="account_asset.model_account_asset_asset"/>
-            <field name="code">
-records.set_to_new()
-            </field>
-        </record>
-
 
     <record id="view_account_analytic_account_form_inherit" model="ir.ui.view">
         <field name="model">account.analytic.account</field>
